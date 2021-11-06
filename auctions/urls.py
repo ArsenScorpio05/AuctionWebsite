@@ -1,14 +1,10 @@
-from django.conf import settings
-from django.contrib import admin
-from django.urls import path, include 
-import debug_toolbar
+from django.urls import path
+from . import views
 
+
+app_name = 'auctions'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", include("core.urls")),
-    path('biders/', include('biders.urls')),
+    path ('bidnow/', views.bidnow, name="bidnow"),
+    
 ]
-
-if settings.DEBUG:
-    urlpatterns.append(path('__debug__/', include(debug_toolbar.urls)))
