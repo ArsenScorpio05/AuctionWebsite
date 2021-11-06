@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biders</title>
+
+    <link
+      href="{% static 'css/style.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <div class="navbar">
+        <div class="icon">
+          <h2 class="logo">SARA</h2>
+          <p class="plogo">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br />
+            Ex vel voluptate sequi, omnis ratione optio, eaque soluta<br />
+            est fugiat officiis accusantium dolore possimus magnam<br />
+            odit laborum, aspernatur veritatis iste? Quibusdam?<br /><br />--
+            SARA Team
+          </p>
+        </div>
+        <div class="form">
+          <h2>Log In Here</h2>
+          <input type="email" name="email" placeholder="Enter e-mail here" />
+          <input type="password" name="" placeholder="Enter password here" />
+          <button class="btn"><a href="#">Login</a></button>
+
+          <p class="link">Don't have an account?!</p>
+          <a href="#">Sign Up here...</a>
+        </div>
+        <div class="vl">
+          <span class="vl-innertext">or</span>
+        </div>
+        <div class="crebid">
+          <button class="createbtn">
+            <a href="#" title="Create an auction">Create</a>
+          </button>
+          <button class="bidbtn">
+            <a href="{% url 'auctions:bidnow' %}" title="Bid for auctions"
+              >Bid Now</a
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
