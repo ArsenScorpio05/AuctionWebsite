@@ -123,6 +123,9 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
 
 # django-debug-toolbar
 INTERNAL_IPS = ["127.0.0.1"]
@@ -137,4 +140,4 @@ if DEBUG:
     }
 
 # django-extensions
-SHELL_PLUS_PRINT_SQL = True
+SHELL_PLUS_PRINT_SQL = False

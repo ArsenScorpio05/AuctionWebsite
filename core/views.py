@@ -12,3 +12,7 @@ def contact(request: HttpRequest) -> HttpResponse:
 
 def about(request: HttpRequest) -> HttpResponse:
     return render(request, "core/about.html")
+
+
+def auctions(request: HttpRequest) -> HttpResponse:
+    return render(request, "core/auctions.html")
