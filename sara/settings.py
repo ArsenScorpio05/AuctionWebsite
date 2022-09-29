@@ -1,5 +1,5 @@
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,12 +26,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # 3rd party apss
-    "debug_toolbar",
+    # "debug_toolbar",
     "django_extensions",
     # local apps
-    "core",
-    "users",
-    "auctions",
+    "core.apps.CoreConfig",
+    "users.apps.UsersConfig",
+    "auctions.apps.AuctionsConfig",
 ]
 
 MIDDLEWARE = [
@@ -46,11 +46,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "sara.urls"
-
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR, 'templates'
+                 ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -113,11 +114,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = "/static/"
+STATIC_URL = "AuctionWebsite/static/"
+MEDIA_URL = '/images/'
+
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+
+MEDIA_ROOT = BASE_DIR / 'static/images'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -127,17 +132,19 @@ LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
 
+
+
 # django-debug-toolbar
-INTERNAL_IPS = ["127.0.0.1"]
+INTERNAL_IPS = ['localhost', ]
 
-if DEBUG:
-    import mimetypes
+# if DEBUG:
+#     import mimetypes
 
-    mimetypes.add_type("application/javascript", ".js", True)
+#     mimetypes.add_type("application/javascript", ".js", True)
 
-    DEBUG_TOOLBAR_CONFIG = {
-        "INTERCEPT_REDIRECTS": False,
-    }
+#     DEBUG_TOOLBAR_CONFIG = {
+#         "INTERCEPT_REDIRECTS": False,
+#     }
 
 # django-extensions
 SHELL_PLUS_PRINT_SQL = False

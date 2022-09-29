@@ -81,3 +81,8 @@ main > .container {
   left: calc(50% - 16px);
   font-weight: 600;
 }
+
+.home_page_h_1{
+  color: white;
+  background-color: red;
+}
